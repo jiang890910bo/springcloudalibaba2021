@@ -1,0 +1,24 @@
+#在spring中，bootstrap文件优先级别是高于application文件，先加载bootstrap
+
+#nacos配置
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #nacos服务配置中心地址
+        file-extension: yaml #指定yaml格式的配置
+        group: TEST_GROUP #表示测试环境
+        namespace: bcf91d43-4e3a-4fb2-bbc9-f397f8320b69
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
